@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="no-js" onLoad=contextmenu()>
+<html lang="en" class="no-js" onLoad=contextmenu() onLoad=(e)>
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -244,6 +244,17 @@ document.oncontextmenu=contextmenu;
 function contextmenu(){
 	return false;
 }
+/** 全局事件监听*/
+   document.body.onkeydown  = function(e){
+       var keyCode = e.keyCode || e.which || e.charCode;
+        var ctrlKey = e.ctrlKey || e.metaKey;
+        if(ctrlKey && (keyCode == 83 || keyCode == 85 || keyCode == 73)) {
+            e.preventDefault();
+            return false;
+        }else if(keyCode && keyCode == 123){
+            return false;
+        }
+   }
 </script>
 </body>
 </html>
